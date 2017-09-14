@@ -23,6 +23,9 @@ public class Library {
     			returnBook = book;
     		}
     	}
+    	if(returnBook == null) {
+    		System.out.println("Schade gibt es das Buch Nr.'" + isbn + "' nicht.");
+    	}
     	return returnBook;
     }
     
@@ -32,6 +35,9 @@ public class Library {
     		if(book.getTitle() == title) {
     			returnBook = book;
     		}
+    	}
+    	if(returnBook == null) {
+    		System.out.println("Schade gibt es das Buch '" + title + "' nicht.");
     	}
     	return returnBook;
     }
@@ -64,4 +70,8 @@ public class Library {
     	
     	return returnString;
     }
+
+	public void removeBook(Book doomedBook) {
+		this.books.remove(doomedBook);		
+	}
 }

@@ -52,13 +52,8 @@ public class Customer {
      */
     public void borrow_aBookByTitle(String title) {
         borrowedBook = theLibrarian.borrow_aBookToCustomerByTitle(title);
-        if (borrowedBook == null) {
-            System.out.println("Schade gibt es das Buch '" + title + "' nicht.");
-        }
-        else {
-        	borrowedBook.setPlacement(Placement.WithCostumer);
-            System.out.println(name + " leiht Buch '" + borrowedBook.getTitle() + "' aus");
-        }
+        borrowedBook.setPlacement(Placement.WithCostumer);
+        System.out.println(name + " leiht Buch '" + borrowedBook.getTitle() + "' aus");
     }
     
     public void borrow_aBookByISBN(int isbn) {
@@ -78,11 +73,7 @@ public class Customer {
      * Nach der Rueckgabe des Buchs wird die Referenz auf null gesetzt.
      */
     public void bringBackABook() {
-        // Implementieren Sie entsprechend dem Sequenzdiagramm den Code
-        // die lokale Referenz auf das Buch-Objekt muss "geloescht" werden. Das...
-        // ...wird mittels Zuweisung des Wertes null bewerkstelligt!
-        //....do it
-
+        theLibrarian.getABookFromCustomer(borrowedBook);
     }
 
 
@@ -108,4 +99,9 @@ public class Customer {
         //....do it
         return "";
     }
+
+
+	public Book getBorrowedBook() {
+		return borrowedBook;
+	}
 }

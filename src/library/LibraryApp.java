@@ -52,22 +52,12 @@ public class LibraryApp {
         ursula.borrow_aBookByTitle("A Study In Scarlet");
         moritz.borrow_aBookByISBN(4);
         System.out.println("\n\nEs erfolgen Ausleihen");
-        //....do it
-
-        // zur Kontrolle das Inventar der Bibliothek anzeigen
-        //....do it
-
-        // -------------
+        
         // Teilauftrag 4
-        // -------------
-        // Eine Kundin bringt das Buch selbstaendig zurueck.
+       ursula.bringBackABook();
         System.out.println("\n\nKundin " + ursula.getName() + " bringt ein Buch zurueck");
-        //....do it
-
-        // zur Kontrolle das Inventar der Bibliothek anzeigen
-        //....do it
-
-        // Ein Kunde wird gemahnt und bringt dann sein Buch zurueck
+        
+        max.remindCustomer(moritz);
         System.out.println("\n\nEs folgt eine Mahnung an Kunde " + moritz.getName());
         //....do it
 
@@ -76,8 +66,7 @@ public class LibraryApp {
 
         // -------------
         // Teilauftrag 5:
-        // --------------
-        //Der Bibliothekar entfernt ein Buch aus der Bibliothek
+        max.removeBook("A Study In Scarlet");
         System.out.println("\n\nDer Bibliothekar entfernt ein Buch aus der Bibliothek");
         //....do it
 

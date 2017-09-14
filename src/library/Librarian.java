@@ -64,9 +64,7 @@ public class Librarian {
          */
 
     public void getABookFromCustomer(Book aBook) {
-        // Implementieren Sie entsprechend dem Sequenzdiagramm den Code
-        //....do it
-
+    	aBook.setPlacement(Placement.InLibrary);
     }
 
     /**
@@ -75,10 +73,10 @@ public class Librarian {
      * @param theCustomer des Kunden, der gemahnt wird
      */
     public void remindCustomer(Customer theCustomer) {
-        // Implementieren Sie entsprechend dem Sequenzdiagramm den Code
-        // Der Text "Kunde 'name' wird gemahnt, das Buch 'Titel' zurueckzubringen" wird ausgegeben
-        //....do it
-        System.out.println("");
+        System.out.println("Der Kunde " + theCustomer.getName() + 
+        		"wirde gemahn das Buch " + theCustomer.getTitleOfBorrowedBook()
+        		+ "zurückzubringen");
+        this.getABookFromCustomer(theCustomer.getBorrowedBook());
 
     }
 
@@ -90,18 +88,7 @@ public class Librarian {
      * @param title Referenz des Buchs
      */
     public void removeBook(String title) {
-        // Implementieren Sie entsprechend dem Sequenzdiagramm und dem
-        // gezeigten Struktogrammden Code.
-        //
-        //    +-----------------------------------------------------------------+
-        //    � suche Buchtitel in Bibliothek  ( --> liefert die Referenz)      �
-        //    +-----------------------------------------------------------------+
-        //    � if (gueltige Buchreferenz)                                       �
-        //    �    --+----------------------------------------------------------+
-        //    � then  entferen Buch aus der Bibliothek                         �
-        //    +------+----------------------------------------------------------+
-        //
-        //....do it
-
+        Book doomedBook = library.searchBookByTitle(title);
+        library.removeBook(doomedBook);
     }
 }
