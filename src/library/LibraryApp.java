@@ -1,4 +1,4 @@
-package java;
+package library;
 
 /**
  * Hier werden alle benoetigten Objekte erstellt
@@ -20,9 +20,9 @@ package java;
  * </ul>
  * Die Klassen Library und Book muessen nicht bearbeitet werden.
  *
- * @Author: bitte Namen ergaenzen
- * @Date: aktuelles Bearbeitungsdatum eintragen
- * @Version: beginnend mit V1.0 die Versionierung nachfuehren
+ * @Author: Severin Peter
+ * @Date: 14.09.17
+ * @Version: V1.0
  */
 public class LibraryApp {
 
@@ -31,32 +31,26 @@ public class LibraryApp {
     Hier den Ablauf implementieren
     */
     public static void main(String[] args) {
-        // Teilauftrag 1
-        // -------------
-        // Deklaration der Hauptklassen
-        //....do it
+    	
+    	//Teilaufgabe 1
+        Library library = new Library();
+        Librarian max = new Librarian(library);   
+        Customer ursula = new Customer("Ursula", max);
+        Customer moritz = new Customer("Moritz", max);
 
-        Customer ursula = null;
-        Customer moritz = null;
-
-        // Erzeugen der Objekte
-        //....do it
-
-
-        // -------------
-        // Teilauftrag 2
-        // -------------
-        // Buecher in die Bibliothek einreihen
+        //Teilaufgabe 2
+        max.buyNewBook("A Study In Scarlet", 1);
+        max.buyNewBook("The Hound Of The Baskervilles", 2);
+        max.buyNewBook("The Sign Of The Four", 3);
+        max.buyNewBook("The Valley Of Fear", 4);
+        max.buyNewBook("The Return Of Sherlock Holmes", 5);
+        System.out.println(library.toString());
         System.out.println("Der Bibliothekar kauft neue Buecher und stellt diese in die Bibliothek");
-        //...do it
-
-        // zur Kontrolle das Inventar der Bibliothek anzeigen
-        //....do it
-
-        // -------------
+        
         // Teilauftrag 3
-        //--------------
-        // Kunden leihen ein Buch aus
+        
+        ursula.borrow_aBookByTitle("A Study In Scarlet");
+        moritz.borrow_aBookByISBN(4);
         System.out.println("\n\nEs erfolgen Ausleihen");
         //....do it
 

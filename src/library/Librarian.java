@@ -1,4 +1,4 @@
-package java;
+package library;
 
 /**
  * Die Klasse repraesentiert den Bibliotheker.
@@ -36,16 +36,9 @@ public class Librarian {
      * @param title des Buchs
      * @param isbn  des Buchs
      */
-    public void buyNewBook(String title, String isbn) {
-        // nach Sequenzdiagramm implementieren
-        //....do it
-    
-    
-    /* Hinweis:
-    Aufrufe koennen ineinander geschachtelt sein. Es ist ueblich, das
-    so zu machen, dient aber nicht der Uebersichtlichkeit (vor allem
-    nicht fuer Anfnger).
-    */
+    public void buyNewBook(String title, int isbn) {
+        Book book = new Book(title, isbn);
+        library.addBook(book);
     }
 
     /**
@@ -57,42 +50,12 @@ public class Librarian {
      * @return Referenz auf das Buch oder null, wenn es den Titel nicht gibt.
      */
     public Book borrow_aBookToCustomerByTitle(String title) {
-        // Implementieren Sie entsprechend dem Sequenzdiagramm und dem
-        // gezeigten Struktogrammden Code.
-        //
-        //    +-----------------------------------------------------------------+
-        //    � suche Buchtitel in Bibliothek  ( --> liefert die Referenz)      �
-        //    +-----------------------------------------------------------------+
-        //    � if (gueltige Buchreferenez)                                      �
-        //    �    --+----------------------------------------------------------+
-        //    � then  > return Buchreferenz                                    �
-        //    �    --+----------------------------------------------------------+
-        //    � else  gib eine Meldung aus, dass Buchtitel nicht in Bibliothek �
-        //    �      +----------------------------------------------------------+
-        //    �       > return null                                            �
-        //    +------+----------------------------------------------------------+
-        //
-        //....do it
-        return null;
+        return library.searchBookByTitle(title);
     }
 
-        /**
-         Das angefragte Buch wird dem Kunden ausgeliehen.
-         Ist das Buch nicht vorhanden, wird der Wert null geliefert. In diesem
-         Fall gibt der Bibliothekar einen Hinweis aus.
-         @param search_isbn des Buchs
-         @return Book Referenz auf das Buch oder null, wenn es den Titel nicht gibt.
-         */
-        public Book borrow_aBookToCustomerByISBN (String  search_isbn){
-            Book aBook = library.searchBookByISBN(search_isbn);
-            if (aBook != null) {
-                return aBook;
-            } // end of if
-            else {
-                System.out.println("Das Buch mit der ISBN-Numemr'" + search_isbn + "' ist nicht verfuegbar");
-                return null;
-            }
-        }
+    public Book borrow_aBookToCustomerByISBN (int isbn){
+        return library.searchBookByISBN(isbn);
+    }
 
 
         /**

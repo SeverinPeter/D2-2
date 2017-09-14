@@ -1,4 +1,4 @@
-package java;
+package library;
 
 /**
  * Die Klasse beschreibt einen Kunden, der in der Bibliothek
@@ -51,26 +51,25 @@ public class Customer {
      * @param title des Buchs
      */
     public void borrow_aBookByTitle(String title) {
-        // Implementieren Sie entsprechend dem Sequenzdiagramm und dem
-        // hier gezeigten Struktogramm den Code.
-        //
-        //    +-----------------------------------------------------------------+
-        //    | Gib Bibliothekar den gewuenschten Buchtitel                      �
-        //    +-----------------------------------------------------------------+
-        //    � if (keine gueltige Buchreferenez)                                �
-        //    �    --+----------------------------------------------------------+
-        //    � then  gib Meldung aus, dass Buch mit gesuchten Titel fehlt     �
-        //    �    --+----------------------------------------------------------+
-        //    � else  gib Titel und ISBN des Buchs aus, das ausgeliehen wurde  �
-        //    +------+----------------------------------------------------------+
-        //
-        //....do it
         borrowedBook = theLibrarian.borrow_aBookToCustomerByTitle(title);
         if (borrowedBook == null) {
             System.out.println("Schade gibt es das Buch '" + title + "' nicht.");
-        } // end of if
-        else
+        }
+        else {
+        	borrowedBook.setPlacement(Placement.WithCostumer);
             System.out.println(name + " leiht Buch '" + borrowedBook.getTitle() + "' aus");
+        }
+    }
+    
+    public void borrow_aBookByISBN(int isbn) {
+        borrowedBook = theLibrarian.borrow_aBookToCustomerByISBN(isbn);
+        if (borrowedBook == null) {
+            System.out.println("Schade gibt es das Buch Nr.'" + isbn + "' nicht.");
+        }
+        else {
+        	borrowedBook.setPlacement(Placement.WithCostumer);
+            System.out.println(name + " leiht Buch '" + borrowedBook.getTitle() + "' aus");
+        }
     }
 
 
