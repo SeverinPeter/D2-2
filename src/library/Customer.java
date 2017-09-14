@@ -9,9 +9,9 @@ package library;
  * Die Ausleihe begrenzt sich pro Kunde auf ein Buch.
  * Der Kunde kann gemahnt werden.
  *
- * @Author: bitte Namen ergaenzen
- * @Date: aktuelles Bearbeitungsdatum eintragen
- * @Version: beginnend mit V1.0 die Versionierung nachfuehren
+ * @Author:Severin Peter
+ * @Date:14.09.17
+ * @Version:V1.0
  */
 public class Customer {
 

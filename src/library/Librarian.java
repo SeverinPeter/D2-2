@@ -11,9 +11,9 @@ package library;
  * <li>entfernt Buecher aus der Bibliothek, </li>
  * </ul></p>
  *
- * @Author: bitte Namen ergaenzen
- * @Date: aktuelles Bearbeitungsdatum eintragen
- * @Version: beginnend mit V1.0 die Versionierung nachfuehren
+ * @Author:Severin Peter
+ * @Date:14.09.17
+ * @Version:V1.0
  */
 public class Librarian {
 
