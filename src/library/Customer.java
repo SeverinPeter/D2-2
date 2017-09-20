@@ -13,6 +13,10 @@ package library;
  * @Date:14.09.17
  * @Version:V1.0
  */
+
+import javax.swing.JOptionPane;
+
+
 public class Customer {
 
     private String name;
@@ -50,10 +54,12 @@ public class Customer {
      *
      * @param title des Buchs
      */
-    public void borrow_aBookByTitle(String title) {
-        borrowedBook = theLibrarian.borrow_aBookToCustomerByTitle(title);
-        borrowedBook.setPlacement(Placement.WithCostumer);
-        System.out.println(name + " leiht Buch '" + borrowedBook.getTitle() + "' aus");
+    public void borrow_aBookByTitle() {
+        borrowedBook = theLibrarian.borrow_aBookToCustomerByTitle(JOptionPane.showInputDialog("Geben sie den Titel des Buches ein welches sie auslehnen möchten: "));
+        if(borrowedBook != null) {
+        	borrowedBook.setPlacement(Placement.WithCostumer);
+        	System.out.println(name + " leiht Buch '" + borrowedBook.getTitle() + "' aus");
+        }
     }
     
     public void borrow_aBookByISBN(int isbn) {

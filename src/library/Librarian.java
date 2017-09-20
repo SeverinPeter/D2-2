@@ -15,9 +15,13 @@ package library;
  * @Date:14.09.17
  * @Version:V1.0
  */
+
+import javax.swing.JOptionPane;
+
 public class Librarian {
 
     private Library library;
+    private int counter;
 
     /**
      * Initialisiert das Objekt. Dabei wird die Referenz zur Bibliothek
@@ -36,9 +40,10 @@ public class Librarian {
      * @param title des Buchs
      * @param isbn  des Buchs
      */
-    public void buyNewBook(String title, int isbn) {
-        Book book = new Book(title, isbn);
+    public void buyNewBook() {
+        Book book = new Book(JOptionPane.showInputDialog("Geben sie den Titel des Buches ein: "), counter);
         library.addBook(book);
+        counter ++;
     }
 
     /**
@@ -64,7 +69,12 @@ public class Librarian {
          */
 
     public void getABookFromCustomer(Book aBook) {
-    	aBook.setPlacement(Placement.InLibrary);
+    	if(aBook != null) {
+    		aBook.setPlacement(Placement.InLibrary);
+    	}
+    	else {
+    		System.out.println("No Book");
+    	}
     }
 
     /**
@@ -87,8 +97,8 @@ public class Librarian {
      *
      * @param title Referenz des Buchs
      */
-    public void removeBook(String title) {
-        Book doomedBook = library.searchBookByTitle(title);
+    public void removeBook() {
+        Book doomedBook = library.searchBookByTitle(JOptionPane.showInputDialog("Geben sie den Namen des zu entfernenden Buches ein: "));
         library.removeBook(doomedBook);
     }
 }
