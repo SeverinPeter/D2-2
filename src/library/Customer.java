@@ -55,7 +55,8 @@ public class Customer {
      * @param title des Buchs
      */
     public void borrow_aBookByTitle() {
-        borrowedBook = theLibrarian.borrow_aBookToCustomerByTitle(JOptionPane.showInputDialog("Geben sie den Titel des Buches ein welches sie auslehnen möchten: "));
+    	String title = JOptionPane.showInputDialog("Geben sie den Titel des Buches ein welches sie auslehnen möchten: ");
+    	borrowedBook = theLibrarian.borrow_aBookToCustomerByTitle(title);
         if(borrowedBook != null) {
         	borrowedBook.setPlacement(Placement.WithCostumer);
         	System.out.println(name + " leiht Buch '" + borrowedBook.getTitle() + "' aus");
@@ -101,9 +102,7 @@ public class Customer {
      * @return Buchtitel
      */
     public String getTitleOfBorrowedBook() {
-        // Implementieren Sie entsprechend dem Sequenzdiagramm
-        //....do it
-        return "";
+        return borrowedBook.getTitle();
     }
 
 

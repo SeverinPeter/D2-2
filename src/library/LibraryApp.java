@@ -68,7 +68,6 @@ public class LibraryApp {
         // -------------
         // Teilauftrag 5:
         librarian.removeBook();
-        System.out.println("\n\nDer Bibliothekar entfernt ein Buch aus der Bibliothek");
         //....do it
 
         // zur Kontrolle das Inventar der Bibliothek anzeigen

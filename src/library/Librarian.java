@@ -41,7 +41,8 @@ public class Librarian {
      * @param isbn  des Buchs
      */
     public void buyNewBook() {
-        Book book = new Book(JOptionPane.showInputDialog("Geben sie den Titel des Buches ein: "), counter);
+    	String title = JOptionPane.showInputDialog("Geben sie den Titel des Buches ein: ");
+        Book book = new Book(title, counter);
         library.addBook(book);
         counter ++;
     }
@@ -84,8 +85,8 @@ public class Librarian {
      */
     public void remindCustomer(Customer theCustomer) {
         System.out.println("Der Kunde " + theCustomer.getName() + 
-        		"wirde gemahn das Buch " + theCustomer.getTitleOfBorrowedBook()
-        		+ "zurÃ¼ckzubringen");
+        		" wirde gemahn das Buch " + theCustomer.getTitleOfBorrowedBook()
+        		+ "zurückzubringen");
         this.getABookFromCustomer(theCustomer.getBorrowedBook());
 
     }
@@ -98,7 +99,15 @@ public class Librarian {
      * @param title Referenz des Buchs
      */
     public void removeBook() {
-        Book doomedBook = library.searchBookByTitle(JOptionPane.showInputDialog("Geben sie den Namen des zu entfernenden Buches ein: "));
-        library.removeBook(doomedBook);
+    	String title = JOptionPane.showInputDialog("Geben sie den Namen des zu entfernenden Buches ein: ");
+        System.out.println(title);
+    	Book doomedBook = library.searchBookByTitle(title);
+        if(doomedBook != null) {
+        	System.out.println("Der Bibliothekar entfernt das Buch " + doomedBook.getTitle() + " aus der Bibliothek");
+        	library.removeBook(doomedBook);
+        }
+        else {
+        	System.out.println("Das Buch kann nicht entfernt werden!");
+        }
     }
 }
