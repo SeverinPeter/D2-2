@@ -32,7 +32,7 @@ public class Library {
     public Book searchBookByTitle(String title) {
     	Book returnBook = null;
     	for(Book book : books) {
-    		if(book.getTitle() == title) {
+    		if(book.getTitle().equals(title)) {
     			returnBook = book;
     		}
     	}
