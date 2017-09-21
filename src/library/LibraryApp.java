@@ -42,24 +42,18 @@ public class LibraryApp {
         librarian.buyNewBook();
         librarian.buyNewBook();
         librarian.buyNewBook();
-        librarian.buyNewBook();
-        librarian.buyNewBook();
         
         System.out.println(library.toString());
-        System.out.println("Der Bibliothekar kauft neue Buecher und stellt diese in die Bibliothek");
         
         // Teilauftrag 3
         
         ursula.borrow_aBookByTitle();
-        moritz.borrow_aBookByISBN(4);
-        System.out.println("\n\nEs erfolgen Ausleihen");
+        moritz.borrow_aBookByISBN();
         
         // Teilauftrag 4
        ursula.bringBackABook();
-        System.out.println("\n\nKundin " + ursula.getName() + " bringt ein Buch zurueck");
         
         librarian.remindCustomer(moritz);
-        System.out.println("\n\nEs folgt eine Mahnung an Kunde " + moritz.getName());
         //....do it
 
         // zur Kontrolle das Inventar der Bibliothek anzeigen

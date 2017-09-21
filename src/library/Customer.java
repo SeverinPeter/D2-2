@@ -59,18 +59,20 @@ public class Customer {
     	borrowedBook = theLibrarian.borrow_aBookToCustomerByTitle(title);
         if(borrowedBook != null) {
         	borrowedBook.setPlacement(Placement.WithCostumer);
-        	System.out.println(name + " leiht Buch '" + borrowedBook.getTitle() + "' aus");
+        	JOptionPane.showMessageDialog(null, "Der Kunde " + this.getName() + " leiht das buch " + borrowedBook.getTitle() + " aus.");
         }
     }
     
-    public void borrow_aBookByISBN(int isbn) {
+    public void borrow_aBookByISBN() {
+    	String sisbn = JOptionPane.showInputDialog("Geben sie die ISBN des auszuleihnenden Buches ein: ");
+    	int isbn = Integer.parseUnsignedInt(sisbn);
         borrowedBook = theLibrarian.borrow_aBookToCustomerByISBN(isbn);
         if (borrowedBook == null) {
             System.out.println("Schade gibt es das Buch Nr.'" + isbn + "' nicht.");
         }
         else {
         	borrowedBook.setPlacement(Placement.WithCostumer);
-            System.out.println(name + " leiht Buch '" + borrowedBook.getTitle() + "' aus");
+            JOptionPane.showMessageDialog(null, "Der Kunde " + this.getName() + " leiht das buch " + borrowedBook.getTitle() + " aus.");
         }
     }
 
@@ -81,6 +83,7 @@ public class Customer {
      */
     public void bringBackABook() {
         theLibrarian.getABookFromCustomer(borrowedBook);
+        JOptionPane.showMessageDialog(null, "Der Kunde " + this.getName() + " bringt das Buch " + borrowedBook.getTitle() + " zurück.");
     }
 
 

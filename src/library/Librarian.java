@@ -44,6 +44,7 @@ public class Librarian {
     	String title = JOptionPane.showInputDialog("Geben sie den Titel des Buches ein: ");
         Book book = new Book(title, counter);
         library.addBook(book);
+        JOptionPane.showMessageDialog(null, "Der Bibliothekar erwirbt das Buch " + book.getTitle(), "Message", JOptionPane.PLAIN_MESSAGE);
         counter ++;
     }
 
@@ -84,9 +85,7 @@ public class Librarian {
      * @param theCustomer des Kunden, der gemahnt wird
      */
     public void remindCustomer(Customer theCustomer) {
-        System.out.println("Der Kunde " + theCustomer.getName() + 
-        		" wirde gemahn das Buch " + theCustomer.getTitleOfBorrowedBook()
-        		+ "zurückzubringen");
+    	JOptionPane.showMessageDialog(null, "Der Kunde " + theCustomer.getName() + " wird gemahnt das Buch " + theCustomer.getTitleOfBorrowedBook() + " zurückzubringen.");
         this.getABookFromCustomer(theCustomer.getBorrowedBook());
 
     }
